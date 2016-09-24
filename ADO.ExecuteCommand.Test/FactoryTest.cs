@@ -1,15 +1,10 @@
-﻿
-using ADO.ExecuteCommand.Helper;
+﻿using ADO.ExecuteCommand.Helper;
 using ADO.ExecuteCommand.Test.AdoMocks;
+using Microsoft.Practices.Unity;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace ADO.Query.Test
+namespace ADO.ExecuteCommand.Test
 {
-    using ADO.Query.Helper;
-    using ADO.Query.Test.AdoMocks;
-
-    using Microsoft.Practices.Unity;
-    using Microsoft.VisualStudio.TestTools.UnitTesting;
-
     [TestClass]
     public class FactoryTest
     {
@@ -17,17 +12,17 @@ namespace ADO.Query.Test
         public void TestCreateHelper()
         {
             var mockAdo = CommandHelper.CreateHelper("MockAdoHelper");
-            Assert.IsInstanceOfType(mockAdo, typeof(MockQueryRunner));
+            Assert.IsInstanceOfType(mockAdo, typeof(MockCommandHelper));
         }
 
         [TestMethod]
         public void TestDependencyInjectionCreateHelper()
         {
             var container = new UnityContainer();
-            container.RegisterType<IQueryRunner>(new InjectionFactory(c => QueryRunner.CreateHelper("MockAdoHelper")));
+            container.RegisterType<CommandHelper>(new InjectionFactory(c => CommandHelper.CreateHelper("MockAdoHelper")));
 
-            var mockAdo = container.Resolve<IQueryRunner>();
-            Assert.IsInstanceOfType(mockAdo, typeof(MockQueryRunner));
+            var mockAdo = container.Resolve<CommandHelper>();
+            Assert.IsInstanceOfType(mockAdo, typeof(MockCommandHelper));
         }
     }
 }

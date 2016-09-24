@@ -64,8 +64,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Commands\ICommand.cs" />
-    <Compile Include="Commands\ICommandBatch.cs" />
+    <Compile Include="Commands\Command.cs" />
+    <Compile Include="Commands\CommandBatch.cs" />
     <Compile Include="Helper\CommandHelper.cs" />
     <Compile Include="Helper\ConfigurationMissingException.cs" />
     <Compile Include="Helper\DataAccessSectionHandler.cs" />

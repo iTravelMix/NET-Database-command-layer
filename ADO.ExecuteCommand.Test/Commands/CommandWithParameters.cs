@@ -3,11 +3,11 @@ using ADO.ExecuteCommand.Commands;
 
 namespace ADO.ExecuteCommand.Test.Commands
 {
-    class CommandWithParameters : ICommand
+    class InsertCommandWithParameters : Command
     {
-        public CommandWithParameters(int id, string name)
+        public InsertCommandWithParameters(int id, string name)
         {
-            this.Expression = "insert id,name into table_in_database values (:id,:name)";
+            this.Expression = "insert id,name into user values (:id,:name)";
 
             this.Parameters = new Dictionary<string, object>
             {
@@ -15,9 +15,19 @@ namespace ADO.ExecuteCommand.Test.Commands
                 {"name", name}
             };
         }
+    }
 
-        public string Expression { get; }
+    class UpdateCommandWithParameters : Command
+    {
+        public UpdateCommandWithParameters(int id, string name)
+        {
+            this.Expression = "update user set name = :name where id =:id";
 
-        public IDictionary<string, object> Parameters { get; }
+            this.Parameters = new Dictionary<string, object>
+            {
+                {"id", id},
+                {"name", name}
+            };
+        }
     }
 }

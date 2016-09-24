@@ -25,7 +25,7 @@ namespace ADO.ExecuteCommand.Test
                 }
             };
 
-            commandHelper.ExecuteCommand(new CommandWithParameters(1, "Test"));
+            commandHelper.ExecuteCommand(new InsertCommandWithParameters(1, "Test"));
 
             Assert.IsNotNull(commandHelper.Parameters.SingleOrDefault(p => p.ParameterName == "id"));
             Assert.IsNotNull(commandHelper.Parameters.SingleOrDefault(p => p.ParameterName == "name"));
@@ -55,7 +55,7 @@ namespace ADO.ExecuteCommand.Test
                 }
             };
 
-            queryRunner.ExecuteCommand(new CommandWithParameters(1, null));
+            queryRunner.ExecuteCommand(new InsertCommandWithParameters(1, null));
 
             Assert.IsNotNull(queryRunner.Parameters.SingleOrDefault(p => p.ParameterName == "name"));
 
