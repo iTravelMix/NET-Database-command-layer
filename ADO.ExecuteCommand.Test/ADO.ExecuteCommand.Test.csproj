@@ -83,6 +83,7 @@
     <Compile Include="AdoMocks\MockCommandHelper.cs" />
     <Compile Include="Commands\CommandSimple.cs" />
     <Compile Include="Commands\CommandWithParameters.cs" />
+    <Compile Include="Commands\UserCommandBatch.cs" />
     <Compile Include="FactoryTest.cs" />
     <Compile Include="ParametersTest.cs" />
     <Compile Include="IntegrationCommandTest.cs" />
