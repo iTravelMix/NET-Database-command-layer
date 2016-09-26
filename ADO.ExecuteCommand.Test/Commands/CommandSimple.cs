@@ -1,5 +1,4 @@
-﻿using System.Collections.Generic;
-using ADO.ExecuteCommand.Commands;
+﻿using ADO.ExecuteCommand.Commands;
 
 namespace ADO.ExecuteCommand.Test.Commands
 {
@@ -9,8 +8,5 @@ namespace ADO.ExecuteCommand.Test.Commands
         {
             this.Expression = "Insert ....";
         }
-
-        public string Expression { get; set; }
-        public IDictionary<string, object> Parameters { get; set; }
     }
 }

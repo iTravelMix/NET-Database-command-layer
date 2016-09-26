@@ -60,10 +60,6 @@
     <Reference Include="System.Data" />
     <Reference Include="System.Globalization" />
     <Reference Include="System.Xml" />
-    <Reference Include="Unity.ServiceLocator, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Unity.ServiceLocator.2.0.0\lib\net45\Unity.ServiceLocator.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
   </ItemGroup>
   <Choose>
     <When Condition="('$(VisualStudioVersion)' == '10.0' or '$(VisualStudioVersion)' == '') and '$(TargetFrameworkVersion)' == 'v3.5'">
@@ -100,12 +96,12 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Database\CommandTest.mdf">
+    <Content Include="Database\CommandTest.ldf">
+      <DependentUpon>CommandTest.mdf</DependentUpon>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Database\CommandTest_log.ldf">
+    <Content Include="Database\CommandTest.mdf">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-      <DependentUpon>CommandTest.mdf</DependentUpon>
     </Content>
   </ItemGroup>
   <Choose>

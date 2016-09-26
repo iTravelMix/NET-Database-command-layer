@@ -7,7 +7,7 @@ namespace ADO.ExecuteCommand.Test.Commands
     {
         public InsertCommandWithParameters(int id, string name)
         {
-            this.Expression = "insert id,name into user values (:id,:name)";
+            this.Expression = "insert into user (id,name) values (:id,:name)";
 
             this.Parameters = new Dictionary<string, object>
             {
@@ -21,7 +21,7 @@ namespace ADO.ExecuteCommand.Test.Commands
     {
         public UpdateCommandWithParameters(int id, string name)
         {
-            this.Expression = "update user set name = :name where id =:id";
+            this.Expression = "update user set name=:name where id =:id";
 
             this.Parameters = new Dictionary<string, object>
             {

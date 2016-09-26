@@ -23,5 +23,12 @@ namespace ADO.ExecuteCommand.Test
 
             Assert.AreEqual(1, rowsAffected);
         }
+
+        [TestMethod]
+        public void TestBatchCommand()
+        {
+            var adoCommand = CommandHelper.CreateHelper("SqlAdoHelper");
+            adoCommand.ExecuteBatchCommand(new UserCommandBatch());
+        }
     }
 }
