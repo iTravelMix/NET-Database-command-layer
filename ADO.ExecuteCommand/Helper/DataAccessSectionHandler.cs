@@ -16,7 +16,7 @@ namespace ADO.ExecuteCommand.Helper
         public object Create(object parent, object configContext, XmlNode section)
         {
             var ht = new Hashtable();
-            var list = section.SelectNodes( "daProvider" );
+            var list = section.SelectNodes( "daCommandProvider" );
 
             if (list == null)
             {
