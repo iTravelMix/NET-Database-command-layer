@@ -64,14 +64,28 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Commands\Command.cs" />
-    <Compile Include="Commands\CommandBatch.cs" />
-    <Compile Include="Helper\CommandHelper.cs" />
+    <Compile Include="..\ADO.ExecuteCommand.Core\Commands\Command.cs">
+      <Link>Commands\Command.cs</Link>
+    </Compile>
+    <Compile Include="..\ADO.ExecuteCommand.Core\Commands\CommandBatch.cs">
+      <Link>Commands\CommandBatch.cs</Link>
+    </Compile>
+    <Compile Include="..\ADO.ExecuteCommand.Core\Helper\CommandHelper.cs">
+      <Link>Helper\CommandHelper.cs</Link>
+    </Compile>
+    <Compile Include="..\ADO.ExecuteCommand.Core\Helper\DataAccessSectionSettings.cs">
+      <Link>Helper\DataAccessSectionSettings.cs</Link>
+    </Compile>
+    <Compile Include="..\ADO.ExecuteCommand.Core\Helper\MsSql.cs">
+      <Link>Helper\MsSql.cs</Link>
+    </Compile>
+    <Compile Include="..\ADO.ExecuteCommand.Core\Helper\PgSql.cs">
+      <Link>Helper\PgSql.cs</Link>
+    </Compile>
+    <Compile Include="Helper\CommandHelper.Factory.cs" />
     <Compile Include="Helper\ConfigurationMissingException.cs" />
     <Compile Include="Helper\DataAccessSectionHandler.cs" />
-    <Compile Include="Helper\MsSql.cs" />
     <Compile Include="Helper\MySql.cs" />
-    <Compile Include="Helper\PgSql.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

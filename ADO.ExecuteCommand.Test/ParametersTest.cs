@@ -13,7 +13,7 @@ namespace ADO.ExecuteCommand.Test
         [TestMethod]
         public void TestParametersInQuery()
         {
-            var commandHelper = new MockCommandHelper
+            var commandHelper = new MockCommandHelper(null)
             {
                 ReturnValues = new List<IDictionary<string, object>>
                 {
@@ -43,7 +43,7 @@ namespace ADO.ExecuteCommand.Test
         [TestMethod]
         public void TestNullParametersInQuery()
         {
-            var queryRunner = new MockCommandHelper
+            var queryRunner = new MockCommandHelper(null)
             {
                 ReturnValues = new List<IDictionary<string, object>>
                 {

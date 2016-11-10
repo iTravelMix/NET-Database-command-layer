@@ -12,6 +12,10 @@ namespace ADO.ExecuteCommand.Test.AdoMocks
     {
         private IList<IDataParameter> parameters;
 
+        public MockCommandHelper(string connectionString) : base(connectionString)
+        {
+        }
+
         public IList<IDictionary<string, object>> ReturnValues { get; set; }
 
         public override IDbConnection GetConnection()
@@ -40,46 +44,6 @@ namespace ADO.ExecuteCommand.Test.AdoMocks
 
             this.parameters.Add(parameter);
             return parameter;
-        }
-
-        protected override IDbDataAdapter GetDataAdapter()
-        {
-            var dba = MockRepository.GenerateMock<IDbDataAdapter>();
-            dba.Expect(da => da.SelectCommand);
-
-            return dba;
-        }
-
-        protected override void DeriveParameters(IDbCommand cmd)
-        {
-            throw new NotImplementedException();
-        }
-
-        protected override DataTable FillTable(IDbDataAdapter da)
-        {
-            if (this.ReturnValues == null || !this.ReturnValues.Any()) throw new NoNullAllowedException();
-
-            var dt = new DataTable();
-            dt.Clear();
-
-            foreach (var col in this.ReturnValues[0].Keys)
-            {
-                dt.Columns.Add(col);
-            }
-
-            foreach (var rows in this.ReturnValues)
-            {
-                var row = dt.NewRow();
-
-                foreach (var returnValue in rows)
-                {
-                    row[returnValue.Key] = returnValue.Value;
-                }
-
-                dt.Rows.Add(row);
-            }
-            
-            return dt;
         }
 
         public IEnumerable<IDataParameter> Parameters => this.parameters;
